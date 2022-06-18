@@ -71,7 +71,7 @@ config:
   # Enable the Playwright engine:
   engines:
     playwright: {}
-  processor: "./flow.js"
+  processor: "./flows.js"
 scenarios:
   - engine: playwright
     flowFunction: "helloFlow"
@@ -82,7 +82,7 @@ Use a Playwright script to describe virtual user scenario:
 
 (Note: this script was generated with [`playwright codegen`](https://playwright.dev/docs/cli/#generate-code). `page` is an instance of [Playwright page](https://playwright.dev/docs/api/class-page/).)
 
-`flow.js`:
+`flows.js`:
 
 ```js
 module.exports = { helloFlow };
