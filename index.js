@@ -50,6 +50,12 @@ class PlaywrightEngine {
 
       context.setDefaultNavigationTimeout(self.defaultNavigationTimeout);
       context.setDefaultTimeout(self.defaultTimeout);
+
+      if(self.contextOptions.tracesDir) {
+        debug('trace started')
+        await context.tracing.start({ screenshots: true, snapshots: true });
+      }
+
       debug('context created');
 
       const uniquePageLoadToTiming = {};
@@ -138,6 +144,10 @@ class PlaywrightEngine {
         const fn = self.processor[spec.flowFunction];
         await fn(page, initialContext, events);
 
+        if(self.contextOptions.tracesDir) {
+          debug('trace stopped')
+          await context.tracing.stop({ path: `${self.contextOptions.tracesDir}/trace-${Date.now().toString()}.zip` });
+        }
         await page.close();
 
         if(cb) { cb(null, initialContext); }
