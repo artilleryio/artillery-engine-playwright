@@ -1,5 +1,7 @@
 # artillery-engine-playwright
 
+# ℹ️ The code has been moved to https://github.com/artilleryio/artillery/tree/main/packages/artillery-engine-playwright
+
 <p align="center">
   <img src="./header.png" alt="Full browser load testing with Artillery + Playwright" width="1012">
 </p>
